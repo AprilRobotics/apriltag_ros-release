@@ -1,0 +1,13 @@
+Source: ros-kinetic-apriltag-ros
+Section: misc
+Priority: extra
+Maintainer: Danylo Malyuta <danylo.malyuta@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, libopencv-dev, ros-kinetic-apriltag, ros-kinetic-catkin, ros-kinetic-cmake-modules, ros-kinetic-cv-bridge, ros-kinetic-geometry-msgs, ros-kinetic-image-geometry, ros-kinetic-image-transport, ros-kinetic-message-generation, ros-kinetic-nodelet, ros-kinetic-pluginlib, ros-kinetic-roscpp, ros-kinetic-sensor-msgs, ros-kinetic-std-msgs, ros-kinetic-tf
+Homepage: http://www.ros.org/wiki/apriltag_ros
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-apriltag-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeigen3-dev, libopencv-dev, ros-kinetic-apriltag, ros-kinetic-cv-bridge, ros-kinetic-geometry-msgs, ros-kinetic-image-geometry, ros-kinetic-image-transport, ros-kinetic-message-runtime, ros-kinetic-nodelet, ros-kinetic-pluginlib, ros-kinetic-roscpp, ros-kinetic-sensor-msgs, ros-kinetic-std-msgs, ros-kinetic-tf
+Description: A ROS wrapper of the AprilTag 3 visual fiducial detection algorithm.
+ Provides full access to the core AprilTag 3 algorithm's customizations and makes the tag detection image and detected tags' poses available over ROS topics (including tf). The core AprilTag 3 algorithm is extended to allow the detection of tag bundles and a bundle calibration script is provided (bundle detection is more accurate than single tag detection). Continuous (camera image stream) and single image detector nodes are available.
