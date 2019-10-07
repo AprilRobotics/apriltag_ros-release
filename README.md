@@ -1,3 +1,26 @@
+## apriltag_ros (melodic) - 3.1.1-1
+
+The packages in the `apriltag_ros` repository were released into the `melodic` distro by running `/usr/bin/bloom-release apriltag_ros -r melodic` on `Mon, 07 Oct 2019 13:53:17 -0000`
+
+The `apriltag_ros` package was released.
+
+Version of package(s) in repository `apriltag_ros`:
+
+- upstream repository: https://github.com/AprilRobotics/apriltag_ros.git
+- release repository: https://github.com/AprilRobotics/apriltag_ros-release.git
+- rosdistro version: `3.1.0-1`
+- old version: `3.1.0-1`
+- new version: `3.1.1-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.13`
+- rosdep version: `0.16.1`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.42`
+
+
 ## apriltag_ros (melodic) - 3.1.0-1
 
 The packages in the `apriltag_ros` repository were released into the `melodic` distro by running `/usr/bin/bloom-release apriltag_ros --rosdistro melodic --track melodic` on `Sat, 25 May 2019 08:05:17 -0000`
