@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(apriltag_ros)
 
 find_package(catkin REQUIRED COMPONENTS
@@ -18,11 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
-
-find_package(PkgConfig)
-pkg_search_module(apriltag REQUIRED apriltag)
-set(apriltag_INCLUDE_DIRS "${apriltag_INCLUDE_DIRS}/apriltag")
-link_directories(${apriltag_LIBDIR})
+find_package(apriltag REQUIRED)
 
 # Set the build type.  Options are:
 #  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
@@ -30,7 +26,13 @@ link_directories(${apriltag_LIBDIR})
 #  Release        : w/o debug symbols, w/ optimization
 #  RelWithDebInfo : w/ debug symbols, w/ optimization
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-# set(CMAKE_BUILD_TYPE Release)
+# We default to 'Release' if none was specified
+IF(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  MESSAGE(STATUS "Setting build type to 'Release' as none was specified.")
+  SET(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the build type" FORCE)
+  SET_PROPERTY(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Coverage" "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+ENDIF()
+
 
 set(CMAKE_CXX_STANDARD 11)
 add_compile_options("-O3" "-funsafe-loop-optimizations" "-fsee" "-funroll-loops" "-fno-math-errno" "-funsafe-math-optimizations" "-ffinite-math-only" "-fno-signed-zeros")
@@ -79,7 +81,6 @@ catkin_package(
     tf
   DEPENDS
     OpenCV
-    apriltag
   LIBRARIES
     ${PROJECT_NAME}_common
     ${PROJECT_NAME}_continuous_detector
@@ -94,12 +95,11 @@ include_directories(include
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
-  ${apriltag_INCLUDE_DIRS}
 )
 
 add_library(${PROJECT_NAME}_common src/common_functions.cpp)
 add_dependencies(${PROJECT_NAME}_common ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(${PROJECT_NAME}_common ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${apriltag_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_common ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} apriltag::apriltag)
 
 add_library(${PROJECT_NAME}_continuous_detector src/continuous_detector.cpp)
 target_link_libraries(${PROJECT_NAME}_continuous_detector ${PROJECT_NAME}_common ${catkin_LIBRARIES})
