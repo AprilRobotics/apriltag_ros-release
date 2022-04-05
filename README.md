@@ -1,3 +1,26 @@
+## apriltag_ros (noetic) - 3.2.1-2
+
+The packages in the `apriltag_ros` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic apriltag_ros` on `Tue, 05 Apr 2022 15:04:48 -0000`
+
+The `apriltag_ros` package was released.
+
+Version of package(s) in repository `apriltag_ros`:
+
+- upstream repository: https://github.com/AprilRobotics/apriltag_ros.git
+- release repository: https://github.com/AprilRobotics/apriltag_ros-release.git
+- rosdistro version: `3.2.0-1`
+- old version: `3.2.1-1`
+- new version: `3.2.1-2`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.24`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## apriltag_ros (noetic) - 3.2.1-1
 
 The packages in the `apriltag_ros` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic apriltag_ros` on `Tue, 05 Apr 2022 15:02:45 -0000`
